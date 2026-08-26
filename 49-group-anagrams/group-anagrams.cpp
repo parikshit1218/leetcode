@@ -6,16 +6,16 @@ public:
 
         for (string s : strs) {
 
-            vector<int> count(26, 0);
+            int count[26] = {0};
 
-            for (char ch : s) {
-                count[ch - 'a']++;
+            for (char c : s) {
+                count[c - 'a']++;
             }
 
-            string key = "";
+            string key;
 
             for (int i = 0; i < 26; i++) {
-                key += to_string(count[i]) + "#";
+                key += to_string(count[i]) + '#';
             }
 
             mp[key].push_back(s);
@@ -23,7 +23,7 @@ public:
 
         vector<vector<string>> ans;
 
-        for (auto it : mp) {
+        for (auto &it : mp) {
             ans.push_back(it.second);
         }
 
